@@ -1,10 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
-  server:{
-    host:true
-  },
   plugins: [react()],
+  server: {
+    host: true,           // you already have this
+    port: 5173,
+    watch: {
+      usePolling: true,   // FIX: detect file changes in Docker on Windows
+      interval: 300,      // optional: ms between checks
+    },
+    hmr: {
+      clientPort: 5173,   // FIX: HMR websocket through mapped port
+    },
+  },
 })
