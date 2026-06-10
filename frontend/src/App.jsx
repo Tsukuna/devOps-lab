@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: 500, margin: '2rem auto' }}>
-      <h1>Todos List Flex</h1>
+      <h1>Todos List</h1>
 
       <form onSubmit={handleCreate}>
         <input
